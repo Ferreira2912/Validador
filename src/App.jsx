@@ -1,23 +1,21 @@
-import Contador from "./Contador";
-import Relogio from "./Relogio";
-import ListaUsuarios from "./ListaUsuarios";
-import "./styles.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
+import Contato from "./components/Contato";
+import NavBar from "./components/NavBar";
+import "./index.css";
 
-const App = () => {
+function App() {
   return (
-    <div className="container">
-      <h1>React Hooks - useState e useEffect</h1>
-      <div className="section">
-        <Contador />
+    <Router>
+      <NavBar />
+      <div style={{ paddingTop: "80px" }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contato" element={<Contato />} />
+        </Routes>
       </div>
-      <div className="section">
-        <Relogio />
-      </div>
-      <div className="section">
-        <ListaUsuarios />
-      </div>
-    </div>
+    </Router>
   );
-};
+}
 
 export default App;
